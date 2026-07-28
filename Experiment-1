@@ -1,0 +1,66 @@
+Experiment 1.1 Conatain duplicate (leetcode-217)
+
+Aim:-
+To write a C++ program that checks whether an integer array contains any duplicate elements. If any element appears more than once, return true; otherwise, return false.
+Algorithm (Using Sorting):
+1. Start.
+2. Sort the given array in ascending order.
+3. Traverse the sorted array from index 0 to n-2.
+4. Compare each element with its next element.
+5. If nums[i] == nums[i+1], return true because a duplicate exists.
+6. If no duplicate is found after the loop, return false.
+7. Stop.
+
+Code:-
+class Solution {
+
+public:
+
+    bool containsDuplicate(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        int n =nums.size();
+        for(int i=0;i<n-1;i++){
+            if(nums[i]==nums[i+1]){
+                    return true;
+            }
+        }
+        return false;
+    }
+};
+
+Experiment 1.2 Conatain duplicate (leetcode-219)
+
+Aim:-
+To write a C++ program that determines whether an integer array contains two equal elements whose indices differ by at most k. Return true if such a pair exists; otherwise, return false.
+
+Algorithm (Using Hash Map):
+1. Start.
+2. Create an unordered_map to store each element and its latest index.
+3. Traverse the array from left to right.
+4. For each element:
+5. Check if it already exists in the map.
+6. If it exists, calculate the index difference:
+7. If (current_index - previous_index) <= k, return true.
+8. Update the current element's index in the map.
+9. If the loop completes without finding a valid pair, return false.
+9. Stop.
+
+Code:-
+class Solution {
+
+public:
+
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        unordered_map<int,int>mp;
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            if(mp.find(nums[i])!=mp.end()){
+                if(i-mp[nums[i]]<=k){
+                    return true;
+                }
+            }
+            mp[nums[i]]=i;
+        }
+        return false;
+    }
+};
