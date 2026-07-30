@@ -1,4 +1,4 @@
-Experiment 1.1 Conatain duplicate (leetcode-217)
+Experiment 1.1 Contain duplicate (leetcode-217)
 
 Aim:-
 To write a C++ program that checks whether an integer array contains any duplicate elements. If any element appears more than once, return true; otherwise, return false.
